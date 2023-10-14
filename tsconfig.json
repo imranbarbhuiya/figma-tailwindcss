@@ -1,0 +1,13 @@
+{
+	"compilerOptions": {
+		"moduleResolution": "node",
+		"module": "commonjs",
+		"skipLibCheck": true,
+		"target": "es6",
+		"lib": ["es6"],
+		"strict": true,
+		"outDir": "./dist",
+		"typeRoots": ["./node_modules/@types", "./node_modules/@figma"]
+	},
+	"include": ["src/**/*.ts"]
+}
