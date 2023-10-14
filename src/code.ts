@@ -17,19 +17,22 @@ figma.codegen.on('generate', async (e) => {
 
 	console.log(css);
 
-	const { nodes } = await converter.convertCSS(`
+	const { convertedRoot, nodes } = await converter.convertCSS(`
     div {
         ${css}
     }
     `);
 
-	const parentCss = nodes[0].tailwindClasses.join(' ');
-
 	return [
 		{
 			title: 'tailwindcss',
-			code: parentCss,
+			code: nodes[0].tailwindClasses.join(' '),
 			language: 'HTML'
+		},
+		{
+			title: 'css',
+			code: convertedRoot.toString(),
+			language: 'CSS'
 		}
 	];
 });
