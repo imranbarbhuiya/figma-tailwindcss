@@ -1,5 +1,8 @@
 import { TailwindConverter } from 'css-to-tailwindcss';
-const converter = new TailwindConverter();
+
+const converter = new TailwindConverter({
+	remInPx: 16
+});
 
 figma.codegen.on('generate', async (e) => {
 	const node = e.node;
