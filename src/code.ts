@@ -9,13 +9,9 @@ figma.codegen.on('generate', async (e) => {
 
 	const cssObj = await node.getCSSAsync();
 
-	console.log(cssObj);
-
 	const css = Object.entries(cssObj)
 		.map(([key, value]) => `${key}: ${value.replace(/\/\*.*\*\//g, '').trim()};`)
 		.join('\n');
-
-	console.log(css);
 
 	const { convertedRoot, nodes } = await converter.convertCSS(`
     div {
