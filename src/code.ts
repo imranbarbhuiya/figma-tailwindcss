@@ -1,33 +1,21 @@
-import { TailwindConverter } from 'css-to-tailwindcss';
-
-const converter = new TailwindConverter({
-	remInPx: 16
-});
+import { cssToTailwind } from './cssToTailwind';
 
 figma.codegen.on('generate', async (e) => {
 	const node = e.node;
 
 	const cssObj = await node.getCSSAsync();
 
-	const css = Object.entries(cssObj)
-		.map(([key, value]) => `${key}: ${value.replace(/\/\*.*\*\//g, '').trim()};`)
-		.join('\n');
-
-	const { convertedRoot, nodes } = await converter.convertCSS(`
-    div {
-        ${css}
-    }
-    `);
+	const { className, css } = await cssToTailwind(cssObj);
 
 	return [
 		{
 			title: 'tailwindcss',
-			code: nodes[0].tailwindClasses.join(' '),
+			code: className,
 			language: 'HTML'
 		},
 		{
 			title: 'css',
-			code: convertedRoot.toString(),
+			code: css,
 			language: 'CSS'
 		}
 	];

@@ -1,0 +1,41 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`cssToTailwind > should add bg-color class 1`] = `
+{
+  "className": "[background:var(--Primary-B-primary-b-600,#D1D1D1)] rounded-xl",
+  "css": "div {
+    @apply [background:var(--Primary-B-primary-b-600,#D1D1D1)] rounded-xl;
+}
+    ",
+}
+`;
+
+exports[`cssToTailwind > should convert css to tailwind 1`] = `
+{
+  "className": "flex w-[404px] h-[336px] flex-col items-start gap-16 shrink-0 pt-[68px] pb-4 px-4",
+  "css": "div {
+    @apply flex w-[404px] h-[336px] flex-col items-start gap-16 shrink-0 pt-[68px] pb-4 px-4;
+}
+    ",
+}
+`;
+
+exports[`cssToTailwind > should remove font-style: normal 1`] = `
+{
+  "className": "text-[color:var(--Primary-A-primary-a-400,#464646)] [font-family:Montserrat] text-base font-medium leading-5",
+  "css": "div {
+    @apply text-[color:var(--Primary-A-primary-a-400,#464646)] [font-family:Montserrat] text-base font-medium leading-5;
+}
+    ",
+}
+`;
+
+exports[`cssToTailwind > should remove inline comments 1`] = `
+{
+  "className": "text-[color:var(--Primary-A-primary-a-400,#464646)] [font-family:Montserrat] text-base font-medium leading-5",
+  "css": "div {
+    @apply text-[color:var(--Primary-A-primary-a-400,#464646)] [font-family:Montserrat] text-base font-medium leading-5;
+}
+    ",
+}
+`;

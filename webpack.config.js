@@ -10,6 +10,22 @@ module.exports = (env, argv) => ({
 	},
 	module: {
 		rules: [
+			// {
+			// 	test: /\.ts$/,
+			// 	exclude: /(node_modules|bower_components)/,
+			// 	use: {
+			// 		loader: 'swc-loader',
+			// 		options: {
+			// 			minify: true,
+			// 			jsc: {
+			// 				parser: {
+			// 					syntax: 'typescript'
+			// 				},
+			// 				loose: true
+			// 			}
+			// 		}
+			// 	}
+			// },
 			{
 				test: /\.tsx?$/,
 				use: 'ts-loader',

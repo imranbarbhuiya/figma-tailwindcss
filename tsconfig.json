@@ -7,7 +7,9 @@
 		"lib": ["es6"],
 		"strict": true,
 		"outDir": "./dist",
-		"typeRoots": ["./node_modules/@types", "./node_modules/@figma"]
+		"typeRoots": ["./node_modules/@types", "./node_modules/@figma"],
+		"allowJs": true,
+		"checkJs": true
 	},
-	"include": ["src/**/*.ts"]
+	"include": ["src", "tests"]
 }
