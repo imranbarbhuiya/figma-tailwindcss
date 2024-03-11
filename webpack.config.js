@@ -10,32 +10,12 @@ module.exports = (env, argv) => ({
 	},
 	module: {
 		rules: [
-			// {
-			// 	test: /\.ts$/,
-			// 	exclude: /(node_modules|bower_components)/,
-			// 	use: {
-			// 		loader: 'swc-loader',
-			// 		options: {
-			// 			minify: true,
-			// 			jsc: {
-			// 				parser: {
-			// 					syntax: 'typescript'
-			// 				},
-			// 				loose: true
-			// 			}
-			// 		}
-			// 	}
-			// },
-			{
-				test: /\.tsx?$/,
-				use: 'ts-loader',
-				exclude: /node_modules/
-			},
 			{
 				test: /\.[jt]sx?$/,
 				use: {
 					loader: 'babel-loader',
 					options: {
+						presets: ['@babel/preset-typescript'],
 						plugins: ['@babel/plugin-transform-object-rest-spread']
 					}
 				}

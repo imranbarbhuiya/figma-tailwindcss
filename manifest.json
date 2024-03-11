@@ -3,7 +3,7 @@
 	"id": "1295012016362159423",
 	"api": "1.0.0",
 	"main": "dist/code.js",
-	"capabilities": ["codegen"],
+	"capabilities": ["codegen", "vscode"],
 	"codegenLanguages": [
 		{
 			"label": "tailwindcss",
@@ -14,5 +14,6 @@
 	"editorType": ["dev"],
 	"networkAccess": {
 		"allowedDomains": ["none"]
-	}
+	},
+	"documentAccess": "dynamic-page"
 }

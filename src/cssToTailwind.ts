@@ -1,5 +1,3 @@
-// this is in js bcz `babel-loader` doesn't support ts
-
 import { TailwindConverter } from 'css-to-tailwindcss';
 
 const converter = new TailwindConverter({
@@ -7,12 +5,7 @@ const converter = new TailwindConverter({
 	arbitraryPropertiesIsEnabled: true
 });
 
-/**
- *
- * @param cssObj {Record<string, string>}
- * @returns
- */
-export const cssToTailwind = async (cssObj) => {
+export const cssToTailwind = async (cssObj: Record<string, string>) => {
 	if (cssObj['font-style'] === 'normal') {
 		delete cssObj['font-style'];
 	}
