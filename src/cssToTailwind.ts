@@ -10,6 +10,10 @@ export const cssToTailwind = async (cssObj: Record<string, string>, ignoreFields
 		for (const field of ignoreFields) {
 			if (field.includes('=')) {
 				const [key, value] = field.split('=');
+				if (value === '*' && cssObj[key]) {
+					delete cssObj[key];
+				}
+
 				if (cssObj[key] === value) {
 					delete cssObj[key];
 				}
