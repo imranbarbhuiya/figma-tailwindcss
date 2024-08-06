@@ -1,6 +1,6 @@
 # tailwindcss codegen
 
-This plugin generates tailwindcss class names in Figma's dev mode.
+This plugin generates tailwind class names in Figma's dev mode.
 
 No login or other AI stuff.
 
@@ -11,17 +11,18 @@ No login or other AI stuff.
 ## How to use
 
 1. Toggle the dev mode in Figma
-2. Go to pulgins and select css-tailwind-codegen
+2. Go to plugins and select css-tailwind-codegen
 3. Select the layers you want to generate the class names for
 
 ## Features
 
 -   Generates class names for the selected layers
 -   Ignore specific fields
-    1. Click on Inspect Settings and select Ignore Fields
-       ![alt text](.github/image.png)
-    2. Type the property name you want to ignore
-       ![alt text](.github/image-1.png)
-    3. You can also specify a value with the property name to only ignore this field when it has a specific value
-       ![alt text](.github/image-2.png)
-    4. Click Save and done
+
+    - Click on Inspect Settings and select Ignore Fields
+    - ![alt text](.github/image.png)
+    - Type the property name you want to ignore
+    - ![alt text](.github/image-1.png)
+    - You can also specify a value with the property name only to ignore this field when it has a specific value
+    - ![alt text](.github/image-2.png)
+    - Click Save and done
