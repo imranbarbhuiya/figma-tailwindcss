@@ -5,9 +5,16 @@ const converter = new TailwindConverter({
 	arbitraryPropertiesIsEnabled: true
 });
 
-export const cssToTailwind = async (cssObj: Record<string, string>) => {
-	if (cssObj['font-style'] === 'normal') {
-		delete cssObj['font-style'];
+export const cssToTailwind = async (cssObj: Record<string, string>, ignoreFields: string[]) => {
+	if (ignoreFields.length) {
+		for (const field of ignoreFields) {
+			if (field.includes('=')) {
+				const [key, value] = field.split('=');
+				if (cssObj[key] === value) {
+					delete cssObj[key];
+				}
+			} else delete cssObj[field];
+		}
 	}
 
 	const css = Object.entries(cssObj)
@@ -19,7 +26,6 @@ export const cssToTailwind = async (cssObj: Record<string, string>) => {
         ${css}
     }
     `);
-
 	const doc = {
 		className: nodes[0].tailwindClasses.join(' ').trim(),
 		css: convertedRoot.toString()

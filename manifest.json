@@ -15,5 +15,12 @@
 	"networkAccess": {
 		"allowedDomains": ["none"]
 	},
-	"documentAccess": "dynamic-page"
+	"documentAccess": "dynamic-page",
+	"codegenPreferences": [
+		{
+			"itemType": "action",
+			"propertyName": "ignoreFields",
+			"label": "Ignore Fields"
+		}
+	]
 }
