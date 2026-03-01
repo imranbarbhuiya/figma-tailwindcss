@@ -5,7 +5,34 @@ const converter = new TailwindConverter({
 	arbitraryPropertiesIsEnabled: true
 });
 
-export const cssToTailwind = async (cssObj: Record<string, string>, ignoreFields: string[]) => {
+const normalizeVarSpaces = (value: string): string => {
+	let result = '';
+	let depth = 0;
+	let i = 0;
+	while (i < value.length) {
+		const char = value[i];
+		if (char === '(') {
+			depth++;
+			result += char;
+		} else if (char === ')') {
+			depth--;
+			result += char;
+		} else if (char === ',' && depth > 0) {
+			result += ',';
+			while (i + 1 < value.length && value[i + 1] === ' ') {
+				i++;
+			}
+		} else {
+			result += char;
+		}
+
+		i++;
+	}
+
+	return result;
+};
+
+export const cssToTailwind = async (cssObj: Record<string, string>, ignoreFields: string[] = []) => {
 	if (ignoreFields.length) {
 		for (const field of ignoreFields) {
 			if (field.includes('=')) {
@@ -22,7 +49,7 @@ export const cssToTailwind = async (cssObj: Record<string, string>, ignoreFields
 	}
 
 	const css = Object.entries(cssObj)
-		.map(([key, value]) => `${key}: ${value.replace(/\/\*.*\*\//g, '').trim()};`)
+		.map(([key, value]) => `${key}: ${normalizeVarSpaces(value.replace(/\/\*.*\*\//g, '').trim())};`)
 		.join('\n');
 
 	const { convertedRoot, nodes } = await converter.convertCSS(`
