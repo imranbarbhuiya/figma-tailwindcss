@@ -51,4 +51,16 @@ describe('cssToTailwind', () => {
 			})
 		).resolves.toMatchSnapshot();
 	});
+
+	test('should handle CSS variables in shorthand properties', () => {
+		expect(
+			cssToTailwind({
+				display: 'flex',
+				padding: 'var(--Radius-xl, 8px)',
+				'justify-content': 'space-between',
+				'align-items': 'center',
+				'align-self': 'stretch'
+			})
+		).resolves.toMatchSnapshot();
+	});
 });
